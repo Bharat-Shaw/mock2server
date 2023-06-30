@@ -1,5 +1,5 @@
 {
-  "Users": [
+  "users": [
     {
       "name": "sdv",
       "email": "dv@dfb",
@@ -25,5 +25,5 @@
       "id": 4
     }
   ],
-  "Data": []
+  "data": []
 }
