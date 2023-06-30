@@ -1,21 +1,14 @@
-const express = require('express');
 const jsonServer = require('json-server');
-const path = require('path');
-const cors = require('cors');
-
-const app = express();
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const middlewares = jsonServer.defaults();
 
-const PORT = process.env.PORT || 3000;
+server.use(middlewares);
+server.use(router);
 
-app.use(express.json());
-app.use(cors({ origin: 'https://expense-tracker-app-indol-delta.vercel.app' }));
-app.use('/api', middlewares);
-app.use('/api', router);
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
 });
+
 
